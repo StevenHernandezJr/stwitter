@@ -1,0 +1,2 @@
+class Stweet < ApplicationRecord
+end

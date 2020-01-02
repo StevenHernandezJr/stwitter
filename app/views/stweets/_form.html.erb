@@ -1,0 +1,17 @@
+<div class="section">
+  <div class="container">
+    <%= simple_form_for @stweet do |f| %>
+      <div class="field">
+        <div class="control">
+          <%= f.input :stweet, label: "What's on your mind?", wrapper: false, autofocus: true, label_html: {class: "label"}, input_html: {class: "textarea"} %>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <%= f.button :submit, class: "button is-info" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

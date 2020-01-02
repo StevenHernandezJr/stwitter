@@ -10,7 +10,10 @@
         <div class="media-content">
           <div class="content">
             <p>
-              <strong>John Doe</strong> <small>@johndoe 31m</small><br>
+              <%= link_to stweet do %>
+                <strong>John Doe </strong>
+              <% end %>
+              <small>@johndoe 31m</small><br>
               <%= stweet.stweet %>
             </p>
           </div>

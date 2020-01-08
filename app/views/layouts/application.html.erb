@@ -26,17 +26,28 @@
       <div class="navbar-menu">
         <div class="navbar-start">
           <%= link_to "Home", root_path, class: "navbar-item" %>
-          <%= link_to "New Stweet", new_stweet_path, class: "navbar-item" %>
+          <% if user_signed_in? then %>
+            <%= link_to "New Stweet", new_stweet_path, class: "navbar-item" %>
+          <% end %>
         </div>
       </div>
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <%= link_to "/users/sign_up", class: "button is-info" do %>
-              <strong>Sign Up</strong>
-            <% end %>
-            <%= link_to "/users/sign_in", class: "button is-light is-info" do %>
-              <strong>Log In</strong>
+            <% if user_signed_in? then %>
+              <%= link_to edit_user_registration_path, class: "button is-info" do %>
+                <strong><%= current_user.name %></strong>
+              <% end %>
+              <%= link_to destroy_user_session_path, method: :delete, class: "button is-light is-danger" do %>
+                <strong>Log Out</strong>
+              <% end %>
+            <% else %>
+              <%= link_to new_user_session_path, class: "button is-info" do %>
+                <strong>Log In</strong>
+              <% end %>
+              <%= link_to new_user_registration_path, class: "button is-light is-info" do %>
+                <strong>Sign Up</strong>
+              <% end %>
             <% end %>
           </div>
         </div>

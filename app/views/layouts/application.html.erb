@@ -32,12 +32,12 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <a class="button is-info">
+            <%= link_to "/users/sign_up", class: "button is-info" do %>
               <strong>Sign Up</strong>
-            </a>
-            <a class="button is-danger is-light">
-              <strong>Log Out</strong>
-            </a>
+            <% end %>
+            <%= link_to "/users/sign_in", class: "button is-light is-info" do %>
+              <strong>Log In</strong>
+            <% end %>
           </div>
         </div>
       </div>

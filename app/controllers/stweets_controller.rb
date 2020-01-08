@@ -1,5 +1,6 @@
 class StweetsController < ApplicationController
   before_action :find_stweet, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @stweets = Stweet.all.order("created_at DESC")
@@ -9,11 +10,11 @@ class StweetsController < ApplicationController
   end
 
   def new
-    @stweet = Stweet.new
+    @stweet = current_user.stweets.build
   end
 
   def create
-    @stweet = Stweet.new(stweet_params)
+    @stweet = current_user.stweets.build(stweet_params)
 
     if @stweet.save then
       redirect_to @stweet
